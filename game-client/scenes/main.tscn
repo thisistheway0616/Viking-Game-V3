@@ -1,0 +1,27 @@
+[gd_scene format=3 uid="uid://begibeqetmg38"]
+
+[ext_resource type="PackedScene" uid="uid://dxpyfh7je44sw" path="res://scenes/player.tscn" id="1_o5qli"]
+[ext_resource type="Script" uid="uid://fjab6c8clmld" path="res://scenes/main.gd" id="1_sugp2"]
+[ext_resource type="Texture2D" uid="uid://chq4nqfjxujh6" path="res://icon.svg" id="2_0wfyh"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_0wfyh"]
+size = Vector2(128, 128)
+
+[node name="Main" type="Node2D" unique_id=1504713430]
+script = ExtResource("1_sugp2")
+
+[node name="HTTPRequest" type="HTTPRequest" parent="." unique_id=1970561548]
+
+[node name="Node2D" parent="." unique_id=1251826708 instance=ExtResource("1_o5qli")]
+position = Vector2(565, 265)
+
+[node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=1292666212]
+position = Vector2(562, 453)
+
+[node name="Sprite2D" type="Sprite2D" parent="StaticBody2D" unique_id=1850818101]
+texture = ExtResource("2_0wfyh")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" unique_id=1958622233]
+shape = SubResource("RectangleShape2D_0wfyh")
+
+[connection signal="request_completed" from="HTTPRequest" to="." method="_on_http_request_request_completed"]

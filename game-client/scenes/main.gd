@@ -1,0 +1,23 @@
+extends Node2D
+func send_trophyto_server(p_id: String, t_id: String):
+	var url = "http://127.0.0.1:8000/unlock-trophy"
+	var headers = ["Content-Type: application/json"]
+	var body = JSON.stringify({"player_id": p_id, "trophy_id": t_id})
+	
+	$HTTPRequest.request(url, headers, HTTPClient.METHOD_POST, body)
+	
+func _on_http_request_request_completed(_result, _response_code, _headers, body):
+	var response = JSON.parse_string(body.get_string_from_utf8())
+	print("Server says: ", response["message"])
+	
+
+# Called when the node enters the scene tree for the first time.
+func _ready() -> void:
+	send_trophyto_server("TestPlayer_001", "achieve_connection")
+	
+	 # Replace with function body.
+
+
+# Called every frame. 'delta' is the elapsed time since the previous frame.
+func _process(delta: float) -> void:
+	pass
