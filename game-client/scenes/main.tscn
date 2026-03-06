@@ -13,7 +13,7 @@ script = ExtResource("1_sugp2")
 [node name="HTTPRequest" type="HTTPRequest" parent="." unique_id=1970561548]
 
 [node name="Node2D" parent="." unique_id=1251826708 instance=ExtResource("1_o5qli")]
-position = Vector2(565, 265)
+position = Vector2(599, 268)
 
 [node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=1292666212]
 position = Vector2(562, 453)
