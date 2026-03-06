@@ -3,6 +3,7 @@
 [ext_resource type="PackedScene" uid="uid://dxpyfh7je44sw" path="res://scenes/player.tscn" id="1_o5qli"]
 [ext_resource type="Script" uid="uid://fjab6c8clmld" path="res://scenes/main.gd" id="1_sugp2"]
 [ext_resource type="Texture2D" uid="uid://hlilnged6cvi" path="res://assets/images/EnvPrefabs/Ground.png" id="3_sugp2"]
+[ext_resource type="Texture2D" uid="uid://bdj7wp38ms8bv" path="res://assets/images/EnvPrefabs/GrndDrtPth.png" id="4_jyhfs"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_0wfyh"]
 size = Vector2(595, 102)
@@ -17,16 +18,29 @@ top_level = true
 position = Vector2(575, 585)
 scale = Vector2(0.305, 0.305)
 
-[node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=1292666212]
+[node name="GroundGrass" type="StaticBody2D" parent="." unique_id=1292666212]
 position = Vector2(572, 641.00006)
 scale = Vector2(0.365, 0.365)
 
-[node name="Sprite2D" type="Sprite2D" parent="StaticBody2D" unique_id=1850818101]
+[node name="Sprite2D" type="Sprite2D" parent="GroundGrass" unique_id=1850818101]
 position = Vector2(17, -41)
 scale = Vector2(0.29052734, 0.11425781)
 texture = ExtResource("3_sugp2")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" unique_id=1958622233]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="GroundGrass" unique_id=1958622233]
+position = Vector2(17.5, 26)
+shape = SubResource("RectangleShape2D_0wfyh")
+
+[node name="GroundDirtPath" type="StaticBody2D" parent="." unique_id=2016930270]
+position = Vector2(789, 641.00006)
+scale = Vector2(0.365, 0.365)
+
+[node name="Sprite2D" type="Sprite2D" parent="GroundDirtPath" unique_id=24925588]
+position = Vector2(17, -41)
+scale = Vector2(0.29052734, 0.11425781)
+texture = ExtResource("4_jyhfs")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="GroundDirtPath" unique_id=1718084281]
 position = Vector2(17.5, 26)
 shape = SubResource("RectangleShape2D_0wfyh")
 
