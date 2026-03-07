@@ -8,7 +8,13 @@ var attack_hold_timer: float = 0.0
 const HEAVY_ATTACK_THRESHOLD: float = 0.3
 var is_charging_attack: bool = false
 var is_attacking: bool = false
+var max_health: int = 3
+var current_health: int = max_health
+var is_dead: bool = false
+var spawn_position: Vector2
 
+func _ready():
+	spawn_position = global_position
 
 func _physics_process(delta: float) -> void:
 	if not is_attacking:
@@ -72,3 +78,37 @@ func perform_heavy_attack():
 	animated_sprite_2d.play("heavy_attack")
 	await animated_sprite_2d.animation_finished
 	is_attacking = false
+func take_damage(amount: int):
+	if is_dead or is_attacking:
+		return
+		
+	current_health -= amount
+	print("player hit! Health: ", current_health)
+	
+	if current_health <= 0:
+		die()
+	else:
+		handle_hit_state()
+func handle_hit_state():
+	is_attacking = true
+	velocity = Vector2.ZERO
+	animated_sprite_2d.play("hit")
+	
+	await get_tree().create_timer(0.5).timeout
+	
+	is_attacking = false
+	print("back in action!")
+func die():
+	is_dead = true
+	is_attacking = true
+	velocity = Vector2.ZERO
+	animated_sprite_2d.play("death")
+	await animated_sprite_2d.animation_finished
+	respawn_player()
+func respawn_player():
+	current_health = max_health
+	is_dead = false
+	is_attacking = false
+	global_position = spawn_position
+	set_physics_process(true)
+	animated_sprite_2d.play("idle")
