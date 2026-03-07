@@ -258,7 +258,7 @@ animations = [{
 }],
 "loop": false,
 "name": &"heavy_attack",
-"speed": 5.0
+"speed": 8.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -383,7 +383,7 @@ animations = [{
 }],
 "loop": false,
 "name": &"light_attack",
-"speed": 10.0
+"speed": 15.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -434,6 +434,8 @@ scale = Vector2(3, 3)
 sprite_frames = SubResource("SpriteFrames_mx1m4")
 animation = &"heavy_attack"
 autoplay = "idle"
+frame = 8
+frame_progress = 1.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=440673562]
 position = Vector2(-5, 8)
