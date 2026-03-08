@@ -1,0 +1,81 @@
+[gd_scene format=3 uid="uid://begibeqetmg38"]
+
+[ext_resource type="PackedScene" uid="uid://dxpyfh7je44sw" path="res://scenes/player.tscn" id="1_o5qli"]
+[ext_resource type="Script" uid="uid://fjab6c8clmld" path="res://scenes/main.gd" id="1_sugp2"]
+[ext_resource type="Texture2D" uid="uid://hlilnged6cvi" path="res://assets/images/EnvPrefabs/Ground.png" id="3_sugp2"]
+[ext_resource type="Texture2D" uid="uid://bdj7wp38ms8bv" path="res://assets/images/EnvPrefabs/GrndDrtPth.png" id="4_jyhfs"]
+[ext_resource type="Texture2D" uid="uid://v1ehpr5rc2tk" path="res://assets/images/EnvPrefabs/TreeBushWlkPth.png" id="5_tbgi4"]
+[ext_resource type="Texture2D" uid="uid://deyl6j4uw8wl0" path="res://assets/images/EnvPrefabs/TreeBushWalkable.png" id="6_tefeu"]
+[ext_resource type="PackedScene" uid="uid://oe7ydvgrc1um" path="res://scenes/enemy.tscn" id="7_o6xl0"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_0wfyh"]
+size = Vector2(588.97266, 102)
+
+[node name="Main" type="Node2D" unique_id=1504713430]
+script = ExtResource("1_sugp2")
+
+[node name="HTTPRequest" type="HTTPRequest" parent="." unique_id=1970561548]
+
+[node name="Node2D" parent="." unique_id=1251826708 instance=ExtResource("1_o5qli")]
+top_level = true
+position = Vector2(420.99997, 569)
+scale = Vector2(0.305, 0.305)
+
+[node name="GroundGrass" type="StaticBody2D" parent="." unique_id=1292666212]
+position = Vector2(422.99988, 620.00006)
+scale = Vector2(0.365, 0.365)
+
+[node name="Sprite2D" type="Sprite2D" parent="GroundGrass" unique_id=1850818101]
+position = Vector2(17, -41)
+scale = Vector2(0.29052734, 0.11425781)
+texture = ExtResource("3_sugp2")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="GroundGrass" unique_id=1958622233]
+position = Vector2(17.5, 26)
+shape = SubResource("RectangleShape2D_0wfyh")
+
+[node name="GroundDirtPath" type="StaticBody2D" parent="." unique_id=2016930270]
+position = Vector2(639.9999, 620.00006)
+scale = Vector2(0.365, 0.365)
+
+[node name="Sprite2D" type="Sprite2D" parent="GroundDirtPath" unique_id=24925588]
+position = Vector2(17, -41)
+scale = Vector2(0.29052734, 0.11425781)
+texture = ExtResource("4_jyhfs")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="GroundDirtPath" unique_id=1718084281]
+position = Vector2(17.5, 26)
+shape = SubResource("RectangleShape2D_0wfyh")
+
+[node name="TreeBushWlkPth" type="StaticBody2D" parent="." unique_id=1238527180]
+position = Vector2(853.9999, 620.00006)
+scale = Vector2(0.365, 0.365)
+
+[node name="Sprite2D" type="Sprite2D" parent="TreeBushWlkPth" unique_id=1021858582]
+position = Vector2(17, -198.98631)
+scale = Vector2(0.29052734, 0.2685413)
+texture = ExtResource("5_tbgi4")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="TreeBushWlkPth" unique_id=1179508032]
+position = Vector2(20.513672, 26)
+scale = Vector2(0.99999994, 0.99999994)
+shape = SubResource("RectangleShape2D_0wfyh")
+
+[node name="TreeBushWlkPth2" type="StaticBody2D" parent="." unique_id=1692112364]
+position = Vector2(207.00002, 620.00006)
+scale = Vector2(0.365, 0.365)
+
+[node name="Sprite2D" type="Sprite2D" parent="TreeBushWlkPth2" unique_id=1551899641]
+position = Vector2(17, -198.98631)
+scale = Vector2(0.29052734, 0.2685413)
+texture = ExtResource("6_tefeu")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="TreeBushWlkPth2" unique_id=718347195]
+position = Vector2(20.513672, 26)
+scale = Vector2(0.99999994, 0.99999994)
+shape = SubResource("RectangleShape2D_0wfyh")
+
+[node name="Enemy" parent="." unique_id=1895837502 instance=ExtResource("7_o6xl0")]
+position = Vector2(652, 564)
+
+[connection signal="request_completed" from="HTTPRequest" to="." method="_on_http_request_request_completed"]
