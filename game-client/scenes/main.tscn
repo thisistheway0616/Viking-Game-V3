@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://begibeqetmg38"]
 
 [ext_resource type="PackedScene" uid="uid://dxpyfh7je44sw" path="res://scenes/player.tscn" id="1_o5qli"]
-[ext_resource type="Script" uid="uid://fjab6c8clmld" path="res://scenes/main.gd" id="1_sugp2"]
+[ext_resource type="Script" uid="uid://fjab6c8clmld" path="res://scripts/main.gd" id="1_sugp2"]
 [ext_resource type="Texture2D" uid="uid://hlilnged6cvi" path="res://assets/images/EnvPrefabs/Ground.png" id="3_sugp2"]
 [ext_resource type="Texture2D" uid="uid://bdj7wp38ms8bv" path="res://assets/images/EnvPrefabs/GrndDrtPth.png" id="4_jyhfs"]
 [ext_resource type="Texture2D" uid="uid://v1ehpr5rc2tk" path="res://assets/images/EnvPrefabs/TreeBushWlkPth.png" id="5_tbgi4"]

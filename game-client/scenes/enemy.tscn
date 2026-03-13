@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://oe7ydvgrc1um"]
 
-[ext_resource type="Script" uid="uid://3hw8ups72gfm" path="res://scenes/enemy.gd" id="1_7p1mj"]
+[ext_resource type="Script" uid="uid://3hw8ups72gfm" path="res://scripts/enemy.gd" id="1_7p1mj"]
 [ext_resource type="Texture2D" uid="uid://m1rhn0wnovyl" path="res://assets/images/player/MainCharacter(FullPack)/MainCharacter(FullPack-v1)/Hit.png" id="2_4ra3w"]
 [ext_resource type="Texture2D" uid="uid://bsa400orvob3g" path="res://assets/images/player/MainCharacter(FullPack)/MainCharacter(FullPack-v1)/Death.png" id="2_5uy6h"]
 [ext_resource type="Texture2D" uid="uid://bgy176npigpgs" path="res://assets/images/player/MainCharacter(FullPack)/MainCharacter(FullPack-v1)/Idle.png" id="2_md0e3"]
