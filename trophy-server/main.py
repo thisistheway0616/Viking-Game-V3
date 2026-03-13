@@ -7,7 +7,7 @@ class TrophyData(BaseModel):
     trophy_id: str
 
 @app.post("/unlock-trophy")
-async def unlock_trphy(data: TrophyData):
+async def unlock_trophy(data: TrophyData):
     print(f"player {data.player_id} earned: {data.trophy_id}")
     return {"status": "success", "message": f"Trophy {data.trophy_id} recorded!"}
 if __name__ == "__main__":
